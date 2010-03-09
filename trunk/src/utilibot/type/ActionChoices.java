@@ -6,6 +6,7 @@ public class ActionChoices
   private boolean mCheck = false;
   private boolean mCall = false;
   private boolean mRaise = false;
+  private boolean mBet = false;
   private int mCallButton, mCallAmount, mRaiseAmount;
 
   public ActionChoices()
@@ -87,6 +88,16 @@ public class ActionChoices
   public void setRaiseAmount(int aRaiseAmount)
   {
     mRaiseAmount = aRaiseAmount;
+  }  
+  
+  public boolean isBet()
+  {
+    return mBet;
+  }
+
+  public void setBet(boolean aBet)
+  {
+    mBet = aBet;
   }
 
   @Override
@@ -96,6 +107,7 @@ public class ActionChoices
            + ", Check: " + mCheck
            + ", Call: " + mCall
            + ", Raise: " + mRaise
+           + ", Bet: " + mBet
            + ", Call Button: " + mCallButton
            + ", Call Amount: " + mCallAmount;
   }

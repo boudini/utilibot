@@ -19,14 +19,15 @@ public class ActionChoice
   private static final int BUTTON_TWO_Y = 535;
   // Button 2 Colour of Pixel.
   private static final Color BUTTON_TWO_CALL = new Color(143, 63, 14);
-  private static final Color BUTTON_TWO_CHECK = new Color(225, 175, 52);
+  private static final Color BUTTON_TWO_CHECK = new Color(176, 108, 29);
 
   // Button 3 Colour Pixel Test Location.
-  private static final int BUTTON_THREE_X = 696;
-  private static final int BUTTON_THREE_Y = 529;
+  private static final int BUTTON_THREE_X = 737;
+  private static final int BUTTON_THREE_Y = 533;
   // Button 3 Colour of Pixel.
-  private static final Color BUTTON_THREE_CALL = new Color(134, 58, 11);
-  private static final Color BUTTON_THREE_RAISE = new Color(250, 207, 63);
+  private static final Color BUTTON_THREE_CALL = new Color(246, 202, 61);
+  private static final Color BUTTON_THREE_RAISE = new Color(172, 139, 56);
+  private static final Color BUTTON_THREE_BET = new Color(211, 159, 48);
 
 
   /**
@@ -120,6 +121,13 @@ public class ActionChoice
       aChoices.setCall(true);
       aChoices.setCallButton(3);
       processCallAmount(aChoices, 3);
+    }
+    else if (red == BUTTON_THREE_BET.getRed()
+        && green == BUTTON_THREE_BET.getGreen()
+        && blue == BUTTON_THREE_BET.getBlue()) // Bet
+    {
+     aChoices.setBet(true);
+     processCallAmount(aChoices, 3);
     }
   }
 
