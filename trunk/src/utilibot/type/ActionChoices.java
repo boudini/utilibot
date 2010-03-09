@@ -1,3 +1,4 @@
+package utilibot.type;
 public class ActionChoices
 {
   private boolean mFold = true;

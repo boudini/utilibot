@@ -1,6 +1,11 @@
+package utilibot.action;
+
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.Robot;
+
+import utilibot.table.TableIdentifier;
+import utilibot.type.ActionChoices;
 
 public class ActionChoice
 {  

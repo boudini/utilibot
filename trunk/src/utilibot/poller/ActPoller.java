@@ -1,6 +1,9 @@
+package utilibot.poller;
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.Robot;
+
+import utilibot.table.TableIdentifier;
 
 public class ActPoller 
 {    
