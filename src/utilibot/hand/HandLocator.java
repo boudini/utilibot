@@ -1,9 +1,13 @@
+package utilibot.hand;
+
 import java.awt.Color;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.util.ArrayList;
 import java.util.List;
+
+import utilibot.table.TableIdentifier;
 
 
 public class HandLocator

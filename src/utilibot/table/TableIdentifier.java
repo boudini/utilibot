@@ -1,3 +1,4 @@
+package utilibot.table;
 import java.awt.Rectangle;
 import org.xvolks.jnative.JNative;
 import org.xvolks.jnative.Type;

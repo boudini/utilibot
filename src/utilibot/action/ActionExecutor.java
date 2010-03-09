@@ -1,6 +1,11 @@
+package utilibot.action;
+
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
+
+import utilibot.table.TableIdentifier;
+import utilibot.type.ActionChoices;
 
 
 public class ActionExecutor
