@@ -2,16 +2,17 @@ import java.awt.Point;
 
 public class Utilibot
 {
-  private static int mDelay = 3000;
+  private static final String WINDOW_CLASS_NAME = "PokerStarsTableFrameClass";
+  private static final int DELAY = 3000;
   
   public static void main(String [] args) throws Exception
   {      
-    TableIdentifier ti = new TableIdentifier("PokerStarsTableFrameClass", null);
+    TableIdentifier ti = new TableIdentifier(WINDOW_CLASS_NAME, null);
   
     while(true)
     {
       //Poll Table to see if our go.
-      ActPoller.pollTable(ti, mDelay); 
+      ActPoller.pollTable(ti, DELAY); 
       
       //Locate seat position we are in.
       Point handPosition = HandLocator.locateUserPosition(ti);
@@ -25,7 +26,7 @@ public class Utilibot
       //Determine action to take.
       actionChoices = BotEngine.determineAction(actionChoices);
       
-      Thread.sleep(mDelay);
+      Thread.sleep(DELAY);
       
       //Execute the action.
       ActionExecutor.executeAction(ti, actionChoices);
