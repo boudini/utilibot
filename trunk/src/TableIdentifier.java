@@ -14,8 +14,8 @@ public class TableIdentifier
 
   public TableIdentifier(String className, String tableName)
   {
-    this.mClassName = className;
-    this.mTableName = tableName;
+    mClassName = className;
+    mTableName = tableName;
   }
   
   public Rectangle getWindowRectangle() throws NativeException, IllegalAccessException
@@ -40,8 +40,6 @@ public class TableIdentifier
     int right = p.getAsInt(8);
     int bottom = p.getAsInt(12);
 
-    Rectangle r = new Rectangle(left,top,right - left,bottom - top);
-
-    return r;
+    return new Rectangle(left,top,right - left,bottom - top);
   }
 }

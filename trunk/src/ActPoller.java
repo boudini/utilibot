@@ -2,7 +2,6 @@ import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.Robot;
 
-
 public class ActPoller 
 {    
   public static void pollTable(TableIdentifier aTi, int aDelay) throws Exception

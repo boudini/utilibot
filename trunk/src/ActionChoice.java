@@ -4,34 +4,20 @@ import java.awt.Robot;
 
 public class ActionChoice
 {  
-  //BUTTON 2.
-  private static final int CHECK_CALL_X = 582;
-  private static final int CHECK_CALL_Y = 535;
+  // Button 2 Colour Pixel Test Location.
+  private static final int BUTTON_TWO_X = 582;
+  private static final int BUTTON_TWO_Y = 535;
   
-  //If its a CALL on BUTTON 2.
-  private static final int CHECK_CALL_BUTTON_RED = 143;
-  private static final int CHECK_CALL_BUTTON_GREEN = 63;
-  private static final int CHECK_CALL_BUTTON_BLUE = 14;
+  // Button 3 Colour Pixel Test Location.
+  private static final int BUTTON_THREE_X = 696;
+  private static final int BUTTON_THREE_Y = 529;
   
-  //If its a CHECK on BUTTON 2.
-  private static final int CHECK_CALL_NUMBER_RED = 225;
-  private static final int CHECK_CALL_NUMBER_GREEN = 175;
-  private static final int CHECK_CALL_NUMBER_BLUE = 52;
+  private static final Color BUTTON_TWO_CALL = new Color(143, 63, 14);
+  private static final Color BUTTON_TWO_CHECK = new Color(225, 175, 52);
+  
+  private static final Color BUTTON_THREE_CALL = new Color(134, 58, 11);
+  private static final Color BUTTON_THREE_RAISE = new Color(250, 207, 63);
 
-  //BUTTON 3.
-  private static final int RAISE_CALL_X = 696;
-  private static final int RAISE_CALL_Y = 529;  
-  
-  //If its a CALL on BUTTON 3.
-  private static final int RAISE_CALL_BUTTON_RED = 134;
-  private static final int RAISE_CALL_BUTTON_GREEN = 58;
-  private static final int RAISE_CALL_BUTTON_BLUE = 11;
-  
-  //If its a RAISE on BUTTON 3.
-  private static final int RAISE_CALL_NUMBER_RED = 250;
-  private static final int RAISE_CALL_NUMBER_GREEN = 207;
-  private static final int RAISE_CALL_NUMBER_BLUE = 63;  
-    
   public static ActionChoices getActionChoices(TableIdentifier aTi) throws Exception
   {
     ActionChoices actionChoices = new ActionChoices();    
@@ -41,52 +27,70 @@ public class ActionChoice
     int rectX = (int) rect.getX();
     int rectY = (int) rect.getY();
     
-    Color checkCallColour = robot.getPixelColor(rectX + CHECK_CALL_X, rectY + CHECK_CALL_Y);
+    // Button 1
+    actionChoices.setFold(true);
     
-    System.out.println(checkCallColour.getRed() + "," + checkCallColour.getGreen() + "," + checkCallColour.getBlue());
-        
-    //If its CHECK on BUTTON 2.
-    if (checkCallColour.getRed() == CHECK_CALL_NUMBER_RED
-        && checkCallColour.getGreen() == CHECK_CALL_NUMBER_GREEN
-        && checkCallColour.getBlue() == CHECK_CALL_NUMBER_BLUE)
-    {      
-      actionChoices.setCheck(true);
-    }
-    else
-    //If its CALL on BUTTON 2.
-    if (checkCallColour.getRed() == CHECK_CALL_BUTTON_RED
-        && checkCallColour.getGreen() == CHECK_CALL_BUTTON_GREEN
-        && checkCallColour.getBlue() == CHECK_CALL_BUTTON_BLUE)
-    {
-      actionChoices.setCall(true);
-      actionChoices.setCallButton(2);
-    }
+    // Button 2
+    Color buttonTwoColour = robot.getPixelColor(rectX + BUTTON_TWO_X, rectY + BUTTON_TWO_Y);
+    System.out.println("Button Two Colour: " + buttonTwoColour.getRed() + "," + buttonTwoColour.getGreen() + "," + buttonTwoColour.getBlue());
+    processButtonTwo(actionChoices, buttonTwoColour);
     
     
-    Color raiseCallColour = robot.getPixelColor(rectX + RAISE_CALL_X, rectY + RAISE_CALL_Y);
-    
-    System.out.println(raiseCallColour.getRed() + "," + raiseCallColour.getGreen() + "," + raiseCallColour.getBlue());
-        
-    //If its RAISE on BUTTON 3.
-    if (raiseCallColour.getRed() == RAISE_CALL_NUMBER_RED
-        && raiseCallColour.getGreen() == RAISE_CALL_NUMBER_GREEN
-        && raiseCallColour.getBlue() == RAISE_CALL_NUMBER_BLUE)
-    {      
-      actionChoices.setRaise(true);
-    }
-    else
-    //If its CALL on BUTTON 3.
-    if (raiseCallColour.getRed() == RAISE_CALL_BUTTON_RED
-        && raiseCallColour.getGreen() == RAISE_CALL_BUTTON_GREEN
-        && raiseCallColour.getBlue() == RAISE_CALL_BUTTON_BLUE)
-    {
-      actionChoices.setCall(true);
-      actionChoices.setCallButton(3);
-    }
-    
-    System.out.println(actionChoices.toString());
-    
+    // Button 3
+    Color buttonThreeColour = robot.getPixelColor(rectX + BUTTON_THREE_X, rectY + BUTTON_THREE_Y);
+    System.out.println("Button Three Colour: " + buttonThreeColour.getRed() + "," + buttonThreeColour.getGreen() + "," + buttonThreeColour.getBlue());
+    processButtonThree(actionChoices, buttonThreeColour);
+
+    System.out.println("Actions Available: " + actionChoices.toString());
     return actionChoices;
   }
-
+  
+  private static void processButtonTwo(ActionChoices aChoices, Color aColor)
+  {
+    int red = aColor.getRed();
+    int green = aColor.getGreen();
+    int blue = aColor.getBlue();
+    
+    if (red == BUTTON_TWO_CHECK.getRed()
+        && green == BUTTON_TWO_CHECK.getGreen()
+        && blue == BUTTON_TWO_CHECK.getBlue()) // Check
+    {      
+      aChoices.setCheck(true);
+    }
+    else if (red == BUTTON_TWO_CALL.getRed()
+             && green == BUTTON_TWO_CALL.getGreen()
+             && blue == BUTTON_TWO_CALL.getBlue()) // Call
+    {
+      aChoices.setCall(true);
+      aChoices.setCallButton(2);
+      processCallAmount(aChoices, 2);
+    }
+  }
+  
+  private static void processButtonThree(ActionChoices aChoices, Color aColor)
+  {
+    int red = aColor.getRed();
+    int green = aColor.getGreen();
+    int blue = aColor.getBlue();
+    
+    if (red == BUTTON_THREE_RAISE.getRed()
+        && green == BUTTON_THREE_RAISE.getGreen()
+        && blue == BUTTON_THREE_RAISE.getBlue()) // Raise
+    {      
+      aChoices.setRaise(true);
+    }
+    else if (red == BUTTON_THREE_CALL.getRed()
+             && green == BUTTON_THREE_CALL.getGreen()
+             && blue == BUTTON_THREE_CALL.getBlue()) // Call
+    {
+      aChoices.setCall(true);
+      aChoices.setCallButton(3);
+      processCallAmount(aChoices, 3);
+    }
+  }
+  
+  private static void processCallAmount(ActionChoices aChoices, int aButtonNumber)
+  {
+    //TODO get the call amount and set here
+  }
 }
