@@ -1,12 +1,13 @@
 package utilibot.type;
+
 public class ActionChoices
 {
   private boolean mFold = true;
-  private boolean mCheck = false; 
+  private boolean mCheck = false;
   private boolean mCall = false;
   private boolean mRaise = false;
   private int mCallButton, mCallAmount, mRaiseAmount;
-  
+
   public ActionChoices()
   {
 	  mFold = false;
@@ -17,7 +18,7 @@ public class ActionChoices
 	  mCallAmount = -1;
 	  mRaiseAmount = -1;
   }
-  
+
   public boolean isFold()
   {
     return mFold;
@@ -77,7 +78,7 @@ public class ActionChoices
   {
     mCallAmount = aCallAmount;
   }
-  
+
   public int getRaiseAmount()
   {
     return mRaiseAmount;
@@ -92,10 +93,10 @@ public class ActionChoices
   public String toString()
   {
     return "Fold: " + mFold
-           + ", Check: " + mCheck 
+           + ", Check: " + mCheck
            + ", Call: " + mCall
-           + ", Raise: " + mRaise 
+           + ", Raise: " + mRaise
            + ", Call Button: " + mCallButton
-           + ", Call Amount: " + mCallAmount; 
+           + ", Call Amount: " + mCallAmount;
   }
 }
