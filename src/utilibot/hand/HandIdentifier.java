@@ -38,7 +38,7 @@ public class HandIdentifier
     int handX = (int) aHandPosition.getX();
     int handY = (int) aHandPosition.getY();
 
-    mLogger.info("Back Card (" + handX + "," + handY);
+    mLogger.info("Back Card (" + handX + "," + handY + ")");
 
     //Detect for a HEART...
     Color pixelColour = robot.getPixelColor(handX + HEART_X, handY + HEART_Y);

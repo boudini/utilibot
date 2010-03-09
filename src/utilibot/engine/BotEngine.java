@@ -17,6 +17,18 @@ public class BotEngine
   {
     ActionChoices determinedChoice = new ActionChoices();
 
+    if (aActionChoices.isRaise())
+    {
+      mLogger.info("Action Decided: RAISE");
+      determinedChoice.setRaise(true);
+    }
+    else
+    if (aActionChoices.isCall())
+    {
+      mLogger.info("Action Decided: CALL");
+      determinedChoice.setCall(true);
+    }
+    else
     if (aActionChoices.isCheck())
     {
       mLogger.info("Action Decided: CHECK");
