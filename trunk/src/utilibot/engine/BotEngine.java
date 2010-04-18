@@ -16,7 +16,13 @@ public class BotEngine
   public static ActionChoices determineAction(ActionChoices aActionChoices)
   {
     ActionChoices determinedChoice = new ActionChoices();
-
+    
+    if (aActionChoices.isBet())
+    {
+      mLogger.info("Action Decided: BET");
+      determinedChoice.setBet(true);
+    }
+    else
     if (aActionChoices.isRaise())
     {
       mLogger.info("Action Decided: RAISE");

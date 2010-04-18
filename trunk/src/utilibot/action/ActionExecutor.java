@@ -63,7 +63,13 @@ public class ActionExecutor
     {
       //TODO set raise amount before click button
       mLogger.info("Executing Action: RAISE");
-      click(windowX + BUTTON_THREE_Y, windowY + BUTTON_THREE_Y);
+      click(windowX + BUTTON_THREE_X, windowY + BUTTON_THREE_Y);
+    }
+    else if (aActionChoices.isBet())
+    {
+      //TODO set raise amount before click button
+      mLogger.info("Executing Action: BET");
+      click(windowX + BUTTON_THREE_X, windowY + BUTTON_THREE_Y);
     }
     else
     {
