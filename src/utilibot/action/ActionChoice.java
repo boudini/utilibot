@@ -22,12 +22,12 @@ public class ActionChoice
   private static final Color BUTTON_TWO_CHECK = new Color(176, 108, 29);
 
   // Button 3 Colour Pixel Test Location.
-  private static final int BUTTON_THREE_X = 737;
-  private static final int BUTTON_THREE_Y = 533;
+  private static final int BUTTON_THREE_X = 740;
+  private static final int BUTTON_THREE_Y = 532;
   // Button 3 Colour of Pixel.
-  private static final Color BUTTON_THREE_CALL = new Color(246, 202, 61);
-  private static final Color BUTTON_THREE_RAISE = new Color(172, 139, 56);
-  private static final Color BUTTON_THREE_BET = new Color(211, 159, 48);
+  private static final Color BUTTON_THREE_CALL = new Color(193, 132, 37);
+  private static final Color BUTTON_THREE_RAISE = new Color(139, 61, 12);
+  private static final Color BUTTON_THREE_BET = new Color(154, 125, 56);
 
 
   /**
@@ -108,26 +108,25 @@ public class ActionChoice
     int green = aColor.getGreen();
     int blue = aColor.getBlue();
 
-    if (red == BUTTON_THREE_RAISE.getRed()
-        && green == BUTTON_THREE_RAISE.getGreen()
-        && blue == BUTTON_THREE_RAISE.getBlue()) // Raise
+    mLogger.info("Processing Button 3 with Colour(" + red + ", " + green + ", " + blue + ").");
+    
+    if (aColor.equals(BUTTON_THREE_RAISE)) // Raise
     {
+      mLogger.info("Button 3 is a RAISE.");
       aChoices.setRaise(true);
     }
-    else if (red == BUTTON_THREE_CALL.getRed()
-             && green == BUTTON_THREE_CALL.getGreen()
-             && blue == BUTTON_THREE_CALL.getBlue()) // Call
+    else if (aColor.equals(BUTTON_THREE_CALL)) // Call
     {
+      mLogger.info("Button 3 is a CALL.");
       aChoices.setCall(true);
       aChoices.setCallButton(3);
       processCallAmount(aChoices, 3);
     }
-    else if (red == BUTTON_THREE_BET.getRed()
-        && green == BUTTON_THREE_BET.getGreen()
-        && blue == BUTTON_THREE_BET.getBlue()) // Bet
+    else if (aColor.equals(BUTTON_THREE_BET)) // Bet
     {
-     aChoices.setBet(true);
-     processCallAmount(aChoices, 3);
+      mLogger.info("Button 3 is a BET.");
+      aChoices.setBet(true);
+      processCallAmount(aChoices, 3);
     }
   }
 
