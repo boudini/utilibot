@@ -40,7 +40,7 @@ public class Utilibot
 
       //Obtain the suits of the Users cards.
       mLogger.info("Running HandIdentifier");
-      HandIdentifier.getUserHand(handPosition);
+      HandIdentifier.getUserHand(ti, handPosition);
 
       /**
       //Get Action Choices available to us.
