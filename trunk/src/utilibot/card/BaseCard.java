@@ -1,14 +1,16 @@
 package utilibot.card;
 
 import java.awt.image.BufferedImage;
-import utilibot.card.util.Rank;
-import utilibot.card.util.Suit;
+
+import utilibot.card.value.Rank;
+import utilibot.card.value.Suit;
 
 public class BaseCard
 {
-  public static Rank mRank = Rank.UKNOWN;
-  public static Suit mSuit = Suit.UNKNOWN;
-  public static BufferedImage mCardImage = null;
+  private Rank mRank = Rank.UKNOWN;
+  private Suit mSuit = Suit.UNKNOWN;
+  private BufferedImage mCardImage = null;
+  private int mMatchValue = 0;
   
   public BaseCard(Rank aRank, Suit aSuit, BufferedImage aCardImage)
   {
@@ -17,18 +19,30 @@ public class BaseCard
     mCardImage = aCardImage;
   }
 
-  public static Rank getRank()
+  public Rank getRank()
   {
     return mRank;
   }
 
-  public static Suit getSuit()
+  public Suit getSuit()
   {
     return mSuit;
   }
 
-  public static BufferedImage getCardImage()
+  public BufferedImage getCardImage()
   {
     return mCardImage;
+  }
+
+  public int getMatchValue()
+  {
+    return mMatchValue;
+  }
+
+  public void setMatchValue(int aMatchValue)
+  {
+    mMatchValue = aMatchValue;
   }  
+  
+  
 }

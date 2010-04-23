@@ -51,7 +51,7 @@ public class Utilibot
       actionChoices = BotEngine.determineAction(actionChoices);
 
       //Delay executing the action (so Utilibot is not discovered).
-      executorDelay = EXECUTOR_DELAY + randomDelay.nextInt(5000);
+      executorDelay = EXECUTOR_DELAY + randomDelay.nextInt(2000);
       mLogger.info("Delaying ActionExecutor by "
                    + ((double) executorDelay) / 1000.0 + " seconds.");
       Thread.sleep(executorDelay);

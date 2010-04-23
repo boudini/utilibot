@@ -1,4 +1,4 @@
-package utilibot.card.util;
+package utilibot.card.value;
 
 public enum Rank
 {
