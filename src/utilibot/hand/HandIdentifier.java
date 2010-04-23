@@ -23,9 +23,6 @@ public class HandIdentifier
   {   
     Point frontCardPosition = new Point((int) aBackCardPosition.getX() + X_OFFSET, (int) aBackCardPosition.getY() + Y_OFFSET);
 
-    mLogger.info("Back Card (" + (int) aBackCardPosition.getX() + "," + (int) aBackCardPosition.getY() + ")");
-    mLogger.info("Front Card (" + (int) frontCardPosition.getX() + "," + (int) frontCardPosition.getY() + ")");
-    
     BaseCard backCard = CardComparer.compareCard(aBackCardPosition); 
     mLogger.info(backCard.getRank() + " of " + backCard.getSuit() + "'s");
     

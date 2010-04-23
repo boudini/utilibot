@@ -21,10 +21,11 @@ public class ActPoller
     Rectangle windowRect = null;
     Color pixelColour = null;
     Robot robot = new Robot();
+    
+    mLogger.info("Detecting if players turn to act...");
 
     while(true)
     {
-      mLogger.info("Detecting if players turn to act...");
       Thread.sleep(aDelay);
       windowRect = aTi.getWindowRectangle();
       pixelColour = robot.getPixelColor((int) (windowRect.getX() + 440), (int) (windowRect.getY() + 540));

@@ -42,6 +42,7 @@ public class Utilibot
       mLogger.info("Running HandIdentifier");
       HandIdentifier.getUserHand(handPosition);
 
+      /**
       //Get Action Choices available to us.
       mLogger.info("Running ActionChoice");
       ActionChoices actionChoices = ActionChoice.getActionChoices(ti);
@@ -59,6 +60,7 @@ public class Utilibot
       //Execute the action.
       mLogger.info("Running ActionExecutor");
       ActionExecutor.executeAction(ti, actionChoices);
+      **/
     }
   }
 }
