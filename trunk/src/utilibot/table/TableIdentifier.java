@@ -32,8 +32,6 @@ public class TableIdentifier
    */
   public Rectangle getWindowRectangle() throws NativeException, IllegalAccessException
   {
-    mLogger.info("Finding Table with classname='" + mClassName + "'");
-
     JNative findAWindow = new JNative(DLL_NAME, FIND_WINDOW_METHOD);
     findAWindow.setRetVal(Type.INT);
     findAWindow.setParameter(0,Type.STRING, mClassName);
@@ -53,7 +51,7 @@ public class TableIdentifier
     int top = p.getAsInt(4);
     int right = p.getAsInt(8);
     int bottom = p.getAsInt(12);
-
+    
     return new Rectangle(left,top,right - left,bottom - top);
   }
 }

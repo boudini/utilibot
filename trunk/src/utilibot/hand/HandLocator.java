@@ -85,7 +85,9 @@ public class HandLocator
       if (pixelColour.equals(Color.WHITE))
       {
         mLogger.info("User is sat in seat: " + (seatPosition + 1));
-        return listOfSeatBack.get(seatPosition);
+        Point seatPoint = new Point((int) listOfSeatBack.get(seatPosition).getX() + windowX, (int) listOfSeatBack.get(seatPosition).getY() + windowY) ;
+
+        return seatPoint;
       }
     }
 
