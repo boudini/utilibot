@@ -44,5 +44,8 @@ public class BaseCard
     mMatchValue = aMatchValue;
   }  
   
-  
+  public String toString()
+  {
+    return mRank + " of " + mSuit + "'s";
+  }  
 }
