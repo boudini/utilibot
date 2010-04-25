@@ -42,10 +42,10 @@ public class HandIdentifier
     Point frontCardPosition = new Point((int) aBackCardPosition.getX() + X_OFFSET, (int) aBackCardPosition.getY() + Y_OFFSET);
 
     BaseCard backCard = CardComparer.compareCard(aBackCardPosition); 
-    mLogger.info(backCard.getRank() + " of " + backCard.getSuit() + "'s");
+    mLogger.info(backCard.toString());
     
     BaseCard frontCard = CardComparer.compareCard(frontCardPosition);
-    mLogger.info(frontCard.getRank() + " of " + frontCard.getSuit() + "'s");    
+    mLogger.info(frontCard.toString());    
     
     ArrayList<BaseCard> communityCards = getCommunityCards(aTi);
     
