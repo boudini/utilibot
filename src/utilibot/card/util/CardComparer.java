@@ -4,25 +4,13 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FilenameFilter;
-
-import javax.imageio.ImageIO;
-
-import org.apache.log4j.Logger;
-
 import utilibot.card.BaseCard;
-import utilibot.card.club.CLUB_3;
 import utilibot.card.value.Rank;
 import utilibot.card.value.Suit;
 import utilibot.deck.Deck;
-import utilibot.hand.HandIdentifier;
 
 public class CardComparer
-{
-  //Log4J
-  private static Logger mLogger = Logger.getLogger(CardComparer.class);
-  
+{  
   private static final int X_DISPLACEMENT = 14;
   private static final int Y_DISPLACEMENT = 35;  
   

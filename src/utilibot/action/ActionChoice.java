@@ -6,6 +6,7 @@ import java.awt.Robot;
 
 import org.apache.log4j.Logger;
 
+import utilibot.number.NumberRecognition;
 import utilibot.table.TableIdentifier;
 import utilibot.type.ActionChoices;
 
@@ -64,6 +65,8 @@ public class ActionChoice
                  + buttonThreeColour.getGreen() + ","
                  + buttonThreeColour.getBlue());
 
+    processCallAmount(actionChoices, aTi);
+    
     //Print out available actions.
     mLogger.info("Actions Available: " + actionChoices.toString());
 
@@ -93,7 +96,6 @@ public class ActionChoice
     {
       aChoices.setCall(true);
       aChoices.setCallButton(2);
-      processCallAmount(aChoices, 2);
     }
   }
 
@@ -120,18 +122,17 @@ public class ActionChoice
       mLogger.info("Button 3 is a CALL.");
       aChoices.setCall(true);
       aChoices.setCallButton(3);
-      processCallAmount(aChoices, 3);
     }
     else if (aColor.equals(BUTTON_THREE_BET)) // Bet
     {
       mLogger.info("Button 3 is a BET.");
       aChoices.setBet(true);
-      processCallAmount(aChoices, 3);
     }
   }
 
-  private static void processCallAmount(ActionChoices aChoices, int aButtonNumber)
+  private static void processCallAmount(ActionChoices aChoices, TableIdentifier aTi) throws Exception
   {
-    //TODO get the call amount and set here
+    aChoices.setButton2Amount(NumberRecognition.getSecondButtonAmount(aTi));
+    aChoices.setButton3Amount(NumberRecognition.getThirdButtonAmount(aTi));
   }
 }
