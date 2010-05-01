@@ -7,7 +7,7 @@ public class ActionChoices
   private boolean mCall = false;
   private boolean mRaise = false;
   private boolean mBet = false;
-  private int mCallButton, mCallAmount, mRaiseAmount;
+  private int mCallButton, mButton2Amount, mButton3Amount;
 
   public ActionChoices()
   {
@@ -16,8 +16,8 @@ public class ActionChoices
 	  mCall = false;
 	  mRaise = false;
 	  mCallButton =-1;
-	  mCallAmount = -1;
-	  mRaiseAmount = -1;
+	  mButton2Amount = 0;
+	  mButton3Amount = 0;
   }
 
   public boolean isFold()
@@ -70,24 +70,24 @@ public class ActionChoices
     mCallButton = aCallButton;
   }
 
-  public int getCallAmount()
+  public int getButton2Amount()
   {
-    return mCallAmount;
+    return mButton2Amount;
   }
 
-  public void setCallAmount(int aCallAmount)
+  public void setButton2Amount(int aButton2Amount)
   {
-    mCallAmount = aCallAmount;
+    mButton2Amount = aButton2Amount;
   }
 
-  public int getRaiseAmount()
+  public int getButton3Amount()
   {
-    return mRaiseAmount;
+    return mButton3Amount;
   }
 
-  public void setRaiseAmount(int aRaiseAmount)
+  public void setButton3Amount(int aButton3Amount)
   {
-    mRaiseAmount = aRaiseAmount;
+    mButton3Amount = aButton3Amount;
   }  
   
   public boolean isBet()
@@ -109,6 +109,7 @@ public class ActionChoices
            + ", Raise: " + mRaise
            + ", Bet: " + mBet
            + ", Call Button: " + mCallButton
-           + ", Call Amount: " + mCallAmount;
+           + ", Button 2 Amount: " + mButton2Amount
+           + ", Button 3 Amount: " + mButton3Amount;
   }
 }

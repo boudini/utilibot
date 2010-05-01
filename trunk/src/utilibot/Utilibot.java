@@ -9,6 +9,7 @@ import utilibot.action.ActionExecutor;
 import utilibot.engine.BotEngine;
 import utilibot.hand.HandIdentifier;
 import utilibot.hand.HandLocator;
+import utilibot.number.NumberRecognition;
 import utilibot.poller.ActPoller;
 import utilibot.table.TableIdentifier;
 import utilibot.type.ActionChoices;
@@ -38,15 +39,16 @@ public class Utilibot
       mLogger.info("Running HandLocator");
       Point handPosition = HandLocator.locateUserPosition(ti);
 
-      //Obtain the suits of the Users cards.
+      //Obtain the Users cards.
       mLogger.info("Running HandIdentifier");
       HandIdentifier.getUserHand(ti, handPosition);
-
-      /**
+      
       //Get Action Choices available to us.
       mLogger.info("Running ActionChoice");
       ActionChoices actionChoices = ActionChoice.getActionChoices(ti);
 
+      
+      /**
       //Determine action to take.
       mLogger.info("Running BotEngine");
       actionChoices = BotEngine.determineAction(actionChoices);
